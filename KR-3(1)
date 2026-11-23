@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int countBinaryDigits(long long n) {
+    if (n < 0) n = -n;
+    
+    if (n == 0) return 1;
+
+    if (n == 1) return 1;
+    
+    // Рекурсивный шаг: отбрасываем младший бит
+    return 1 + countBinaryDigits(n / 2);
+}
+
+int main() {
+    long long n;
+    cout << "Введите число: ";
+    cin >> n;
+    
+    cout << "Количество разрядов в двоичной записи: " 
+              << countBinaryDigits(n) << endl;
+    
+    return 0;
+}
